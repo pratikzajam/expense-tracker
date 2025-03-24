@@ -2,7 +2,9 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import axios from 'axios'
 import { Toaster, toast } from 'sonner';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+
 
 
 import {
@@ -26,7 +28,7 @@ export function RegisterForm({
 
 
     const navigate = useNavigate();
-   
+
     let handleSubmit = async () => {
 
         event.preventDefault()
@@ -40,15 +42,15 @@ export function RegisterForm({
 
             toast.success(result?.data?.message)
 
-  
-                sessionStorage.setItem("email", form.email);
-      
+
+            sessionStorage.setItem("email", form.email);
+
 
             setTimeout(() => {
                 navigate('/confirmemail');
-              }, "2000");
+            }, "2000");
 
-           
+
 
         } catch (error) {
             toast.error(error.response?.data?.message)
@@ -99,11 +101,12 @@ export function RegisterForm({
 
                             </div>
                             <div className="mt-4 text-center text-sm">
-                                Don&apos;t have an account?{" "}
-                                <a href="#" className="underline underline-offset-4">
-                                    Sign up
-                                </a>
+                                Already have an account?{" "}
+                                <Link to="/login" className="underline underline-offset-4">
+                                    Login
+                                </Link>
                             </div>
+
                         </form>
                     </CardContent>
                 </Card>

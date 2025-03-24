@@ -43,7 +43,7 @@ export function ConfirmEmail({
 
  
       setTimeout(() => {
-        navigate('/dashboard');
+        navigate('/login');
       }, "2000");
 
 
